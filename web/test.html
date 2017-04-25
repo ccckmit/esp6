@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+<div class="odd">Hi!</div>
+<div>Hi!</div>
+<div class="odd">Hi!</div>
+<div>Hi!</div>
+<div class="odd">Hi!</div>
+<div>Hi!</div>
+<div class="odd">Hi!</div>
+<script src="esp6.js"></script>
+<script>
+/*
+ESP6.scriptLoad('test.js')
+var text = await ESP6.ajax({
+  method:'GET',
+  url:'test.html'
+}).then(function(text) {
+  alert(text)
+})
+*/
+
+async function main() {
+  // test ESP6
+  await ESP6.scriptLoad('test.js')
+  var text = await ESP6.ajax({method:'GET', url:'test.html'})
+  alert(text)
+  // test ES6 template string
+  var p = {name:'ccc', age:48 }
+  var text = `Hello ! I am ${p.name}. I am ${p.age} years old.`
+  console.log(text)
+}
+
+main()
+</script>
+</body>
+</html>
