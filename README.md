@@ -22,9 +22,9 @@ $ npm start
 
 The server started at <http://localhost:3000/> , visiting the following page for demo program.
 
-* [Example 1 : DOM](ex1-dom) : <http://localhost:3000/ex1-dom/main.html>
-* [Example 2 : router](ex2-router) : <http://localhost:3000/ex2-router/main.html>
-* [Example 3 : blog](ex3-blog) : <http://localhost:3000/ex3-blog/main.html>
+* [Example 1 : DOM](ex1-dom) :  http://localhost:3000/ex1-dom/main.html
+* [Example 2 : router](ex2-router) :  http://localhost:3000/ex2-router/main.html
+* [Example 3 : blog](ex3-blog) :  http://localhost:3000/ex3-blog/main.html
 
 
 <!--
