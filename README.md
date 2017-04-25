@@ -15,7 +15,7 @@ $ npm install --dev
 $ npm start
 ```
 
-File : <main.html>
+File : [main.html](main.html)
 
 ```js
 <!doctype html>
@@ -47,9 +47,11 @@ i=6
 
 ## What happen ?
 
-The main() load <web/plugin.html> and put into `<div id="pluginBox">...</div>`
+[plugin.html]:web/plugin.html
 
-File : <web/plugin.html>
+The main() load [plugin.html] and put into `<div id="pluginBox">...</div>`
+
+File : [plugin.html]
 
 ```html
 <div>Hi!</div>
@@ -61,9 +63,11 @@ File : <web/plugin.html>
 <div>Hi!</div>
 ```
 
-After that, load <web/plugin.js> and run.
+[plugin.js]:web/plugin.js
 
-File : <web/plugin.js>
+After that, load [plugin.js] and run.
+
+File : [plugin.js]
 
 ```js
 var i = 1
