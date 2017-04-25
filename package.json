@@ -1,6 +1,6 @@
 {
   "name": "esp6",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "ES6 Single Page Application Framefork",
   "main": "esp6.js",
   "dependencies": {},
