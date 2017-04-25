@@ -11,6 +11,10 @@ E.all = function (query) {
   return document.querySelectorAll(query)
 }
 
+E.plugin = function (query, html) {
+  E.one(query).innerHTML = html
+}
+
 E.hide = function (node) { node.hidden = true }
 E.show = function (node) { node.hidden = undefined }
 
