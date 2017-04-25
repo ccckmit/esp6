@@ -47,7 +47,7 @@ i=6
 
 ## What happen ?
 
-The main() load <web/plugin.html> and put into <div id="pluginBox">...</div>
+The main() load <web/plugin.html> and put into `<div id="pluginBox">...</div>`
 
 File : <web/plugin.html>
 
