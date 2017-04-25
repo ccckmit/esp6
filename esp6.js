@@ -1,5 +1,32 @@
+var R = { map: new Map() }
+
 var E = module.exports = {
-  scriptLoaded: {}
+  scriptLoaded: {},
+  router: R
+}
+
+R.route = function (regexp, f) {
+  R.map.set(regexp, f)
+  return this
+}
+
+R.go = function (hash) {
+  window.location.hash = '#' + hash
+  return this
+}
+
+R.init = function () {
+  window.onhashchange = function () {
+    var hash = window.location.hash.trim().substring(1)
+    for (let [regexp, f] of R.map) {
+      var m = hash.match(regexp)
+      if (m) {
+        f(m, hash)
+        break
+      }
+    }
+  }
+  return this
 }
 
 E.one = function (query) {
@@ -60,6 +87,23 @@ E.ajax = function (arg) {
   })
   return promise
 }
+
+E.onready = function (init) {
+  return new Promise(function (resolve, reject) {
+    window.onload = function () {
+      console.log('onload')
+      init()
+      window.onhashchange()
+      resolve()
+    }
+  })
+}
+
+E.init = function () {
+  R.init()
+}
+
+E.init()
 
 ESP6 = E
 

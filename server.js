@@ -1,5 +1,5 @@
 const Koa = require('koa')
-const serve = require('koa-static')
+const koaStatic = require('koa-static')
 const app = new Koa()
 
-app.use(serve('web')).listen(3000)
+app.use(koaStatic('web')).listen(3000)

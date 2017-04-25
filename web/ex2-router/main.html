@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+<div> <a href="#hello">#hello</a> </div>
+<div> <a href="#list/3373">#list/3373</a> </div>
+
+<script src="../esp6.js"></script>
+<script>
+var c = console
+
+async function main() {
+  var R = ESP6.router
+  R.route(/^hello$/, ()=>c.log('hello'))
+  R.route(/^list\/(\w+)/, (m)=>c.log(`list:m[1]=${m[1]}`))
+}
+
+main()
+</script>
+</body>
+</html>
+
+<!--
+  ESP6.scriptLoad('test.js')
+  var text = await ESP6.ajax({
+    method:'GET',
+    url:'test.html'
+  }).then(function(text) {
+    alert(text)
+  })
+  // test ES6 template string
+  var p = {name:'ccc', age:48 }
+  var text = `Hello ! I am ${p.name}. I am ${p.age} years old.`
+  console.log(text)
+-->

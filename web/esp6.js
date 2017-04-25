@@ -1,6 +1,33 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var R = { map: new Map() }
+
 var E = module.exports = {
-  scriptLoaded: {}
+  scriptLoaded: {},
+  router: R
+}
+
+R.route = function (regexp, f) {
+  R.map.set(regexp, f)
+  return this
+}
+
+R.go = function (hash) {
+  window.location.hash = '#' + hash
+  return this
+}
+
+R.init = function () {
+  window.onhashchange = function () {
+    var hash = window.location.hash.trim().substring(1)
+    for (let [regexp, f] of R.map) {
+      var m = hash.match(regexp)
+      if (m) {
+        f(m, hash)
+        break
+      }
+    }
+  }
+  return this
 }
 
 E.one = function (query) {
@@ -61,6 +88,23 @@ E.ajax = function (arg) {
   })
   return promise
 }
+
+E.onready = function (init) {
+  return new Promise(function (resolve, reject) {
+    window.onload = function () {
+      console.log('onload')
+      init()
+      window.onhashchange()
+      resolve()
+    }
+  })
+}
+
+E.init = function () {
+  R.init()
+}
+
+E.init()
 
 ESP6 = E
 
