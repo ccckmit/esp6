@@ -2,9 +2,13 @@
 
 ## Install
 
+For node.js 
+
 ```
 $ npm install esp6
 ```
+
+For browser, download the [esp6.js](web/esp6.js) file and link into your html.
 
 ## Demo
 
@@ -15,7 +19,7 @@ $ npm install --dev
 $ npm start
 ```
 
-File : [main.html](main.html)
+File : [main.html](web/main.html)
 
 ```js
 <!doctype html>
